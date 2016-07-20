@@ -23,6 +23,10 @@ function export_csv($csv_dl_sql)
 			$file->fputcsv($export_arr);
 		}
 	}
+	else
+	{
+		die("ファイルの作成に失敗しました");
+	}
 	header("Content-Disposition: attachment; filename=$file_path");
 	header("Content-Transfer-Encoding: binary");
 	readfile($file_path);
