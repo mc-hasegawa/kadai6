@@ -125,7 +125,8 @@ if (isset($_POST["csv_dl_flag"]))
 }
 if (isset($_FILES["upfile"]))
 {
-	if ($_FILES["upfile"]["type"] === "application/vnd.ms-excel") {
+	if (strpos($_FILES["upfile"]["name"],'.csv') !== false)
+	{
 		import_csv();
 	}
 	else
