@@ -125,7 +125,7 @@ if (isset($_POST["csv_dl_flag"]))
 }
 if (isset($_FILES["upfile"]))
 {
-	if (strpos($_FILES["upfile"]["name"],'.csv') !== false)
+	if (preg_match("/.csv$/",$_FILES["upfile"]["name"]))
 	{
 		import_csv();
 	}
