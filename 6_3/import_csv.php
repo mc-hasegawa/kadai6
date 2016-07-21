@@ -11,6 +11,7 @@ function import_csv()
 		$file = fopen("files/".$_FILES["upfile"]["name"], "r");
 		if($file)	//テキストの文字列化
 		{
+			// $file = mb_convert_encoding(fgetcsv($file),"UTF-8");
 			while(!feof($file))
 			{
 				$up_file_data[] = fgetcsv($file);
@@ -105,7 +106,11 @@ function import_csv()
 		}
 		if ($overlap_count != 0)
 		{
-			die($overlap_count."件のデータ重複");
+			die($overlap_count."件のデータ重複 画面を更新してください");
+		}
+		else
+		{
+			echo "反映されました";
 		}
 	}
 	else
